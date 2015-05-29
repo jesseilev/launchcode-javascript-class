@@ -4,16 +4,21 @@
 	<script type="text/javascript" src="js/DOMUtils.js"></script>
 	<title>Testing DOMUtils.js</title>
 	<script>
-	window.onload = function(){
-		var flatDom = DOMUtils.flattenDOM();
+	window.onload = function() {
+		var root = document.body.parentNode;
+		
+		var flatDom = DOMUtils.flattenDOM(root);
+		console.log(flatDom);
 		
 		var numDomElements = flatDom.length;
-		var classes = DOMUtils.getClasses();
-		var ids = DOMUtils.getIds();
+		var classes = DOMUtils.getClasses(root);
+		var ids = DOMUtils.getIds(root);
+		console.log(ids);
 		
 		document.getElementById("num-dom-elements").innerHTML = numDomElements;
 		document.getElementById("classes").innerHTML = classes.join(", ");
 		document.getElementById("ids").innerHTML = ids.join(", ");
+		
 	};
 	</script>
 </head>
